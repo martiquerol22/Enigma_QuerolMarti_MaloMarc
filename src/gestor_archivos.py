@@ -13,10 +13,10 @@ def cargar_rotores(rotor):
     except FileNotFoundError:
         print(f"ERROR: No se ha encontrado el archivo {rotor}.")
         return
-    
+
     return wire, notch
 
-print(cargar_rotores("src/Rotor1.txt"))
+# wire = cargar_rotores("src/Rotor1.txt")[0]
 
 def validar_rotores(wire):
     if len(wire) != 26:
@@ -32,6 +32,3 @@ def validar_rotores(wire):
         caracteres_vistos.add(char)
 
     return True # si se cumplen todas las condiciones devuelve True
-        
-
-print(validar_rotores())
