@@ -1,3 +1,5 @@
+import utilidades
+
 def cargar_rotores(rotor):
     try:
         print(f"[INFO] Llegint {rotor}...")
@@ -7,7 +9,7 @@ def cargar_rotores(rotor):
             
             """Si no encuentra la 2a linia del archivo asigna el notch como Z"""
             try:
-                notch = data[1]
+                notch = data[1].strip() # por si hubiera in \n
             except:
                 notch = "Z"
 
@@ -18,23 +20,35 @@ def cargar_rotores(rotor):
     print(f"[OK] Arxiu {rotor} llegit correctament!\n")
     return wire, notch
 
-wire = cargar_rotores("Rotor1.txt")[0]
-rotor = "Rotor1.txt"
-def validar_rotores(wire):
-    print(f"[INFO] Validant {rotor}...")
-    if len(wire) != 26:
-        print(f"[ERROR] {rotor}: permutació incorrecta — calen 26 lletres uniques A-Z.")
-        return False # si no se cumple sale de la funcion y devuelve False
+#wire = cargar_rotores("Rotor1.txt")[0]
+#rotor = "data/Rotor1.txt"
 
-    """Mira si hay caracteres repetidos"""
-    caracteres_vistos = set()
-    for char in wire:
-        if char in caracteres_vistos:
-            print(f"[ERROR] {rotor}: permutació incorrecta — calen 26 lletres uniques A-Z")
-            return False # si no se cumple sale de la funcion y devuelve False
-        caracteres_vistos.add(char)
-    print(f"[OK] {rotor} validat!\n")
-    return True # si se cumplen todas las condiciones devuelve True
+def editar_rotor(rotor, new_wire):
+    if utilidades.validar_rotores(new_wire, rotor) == False:
+        return
+    
+    datos = cargar_rotores(rotor)
+    
+    if datos is None:
+        return
+    
+    notch_actual = datos[1]
 
-#cargar_rotores(rotor)
-validar_rotores(wire)
+    try:
+        with open(rotor, "w") as file:
+            file.write(f"{new_wire}\n{notch_actual}")
+        print(f"[OK] {rotor} actualitzat correctament.")
+
+    except Exception as e:
+        print(f"[ERROR] No s'ha pogut escriure: {e}")
+
+    
+"""
+entrada = input("Selecciona un rotor (1-3): ")
+ruta = f"data/Rotor{entrada}.txt" 
+    
+# Alfabeto válido de prueba
+nuevo_alfabeto = "EKMFLGDQVZNTOWYHXUSPAIBRCJ" 
+    
+editar_rotor(ruta, nuevo_alfabeto)
+"""
