@@ -17,4 +17,4 @@ def separador_mensaje(texto_limpio):
     print(f"[OK] Missatge separat cada {n} caracters!")
     return ' '.join(texto_separado)
 
-print(separador_mensaje("HOLABUENDIACOMOESTAMOS"))
+#print(separador_mensaje("HOLABUENDIACOMOESTAMOS"))
