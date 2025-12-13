@@ -20,22 +20,32 @@ notch_3 = "M"
 print(wire_1)
 
 mensaje_encriptar = input("Escriba el mensaje que desea encriptar: ")
-contador_mensaje_encriptar = 0
-tamano_mensaje = len(mensaje_encriptar)
 
-print(tamano_mensaje)
 
-letra_seleccionada1 = input("Escriba la letra que quiera para que sea la primera del rotor 1: ")
-letra_seleccionada2 = input("Escriba la letra que quiera para que sea la primera del rotor 2: ")
-letra_seleccionada3 = input("Escriba la letra que quiera para que sea la primera del rotor 3: ")
+letra_seleccionada1 = input("Escriba la letra que quiera para que sea la primera del rotor 1: ").upper()
+letra_seleccionada2 = input("Escriba la letra que quiera para que sea la primera del rotor 2: ").upper()
+letra_seleccionada3 = input("Escriba la letra que quiera para que sea la primera del rotor 3: ").upper()
 
-def movimiento_rotor(rotor):
-    primer_caracter = wire_1.pop(0)
-    wire_1.append(primer_caracter)
+def posicion_inicial_rotor(rotor, wire, letra_seleccionada):
+    while wire[0] != letra_seleccionada:
+        primer_caracter = wire.pop(0)
+        wire.append(primer_caracter)
 
-    return rotor
+    return wire
 
-def procesar_mensaje_rotor(mensaje):
+def movimiento_rotor(rotor, wire):
+    primer_caracter = wire.pop(0)
+    wire.append(primer_caracter)
+
+    return wire
+
+
+print(posicion_inicial_rotor("rotor", wire_1, letra_seleccionada1))
+print(movimiento_rotor("rotor", wire_1))
+
+
+def procesar_mensaje_rotor(mensaje, wire):
+    rotor_actual = wire 
     for i, caracter_entrada in enumerate(mensaje):
         rotor_actual = movimiento_rotor(rotor_actual) 
         caracter_salida = rotor_actual[0]
@@ -44,7 +54,8 @@ def procesar_mensaje_rotor(mensaje):
     
     return mensaje_encriptar, rotor_actual 
 
-print(procesar_mensaje_rotor)
+print(procesar_mensaje_rotor(mensaje_encriptar, wire_1))
+
 
 
         
