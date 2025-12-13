@@ -33,28 +33,32 @@ def posicion_inicial_rotor(rotor, wire, letra_seleccionada):
 
     return wire
 
-def movimiento_rotor(rotor, wire):
+def movimiento_rotor(rotor, wire, notch):
     primer_caracter = wire.pop(0)
     wire.append(primer_caracter)
+    if notch == wire[0]:
+        (movimiento_rotor("", wire_2, notch_2))
+    if notch_2 == wire_2[0]:
+        print(movimiento_rotor("", wire_3, notch_3))
 
     return wire
 
 
-print(posicion_inicial_rotor("rotor", wire_1, letra_seleccionada1))
-print(movimiento_rotor("rotor", wire_1))
+#print(posicion_inicial_rotor("rotor", wire_1, letra_seleccionada1))
+#print(movimiento_rotor("rotor", wire_1, notch_1))
 
 
-def procesar_mensaje_rotor(mensaje, wire):
-    rotor_actual = wire 
-    for i, caracter_entrada in enumerate(mensaje):
-        rotor_actual = movimiento_rotor(rotor_actual) 
-        caracter_salida = rotor_actual[0]
-        mensaje_encriptar += caracter_salida
-        print(f"Paso {i+1}: Carácter '{caracter_entrada}' -> Rotor: {rotor_actual} -> Salida: '{caracter_salida}'")
+def procesar_mensaje_rotor(texto_limpio, wire):
+    for caracter_entrada in range(len(texto_limpio)):
+        #print("a")
+        (movimiento_rotor("", wire, notch_1))
+
     
-    return mensaje_encriptar, rotor_actual 
+posicion_inicial_rotor("rotor", wire_1, letra_seleccionada1)
+procesar_mensaje_rotor(mensaje_encriptar, wire_1 )
 
-print(procesar_mensaje_rotor(mensaje_encriptar, wire_1))
+
+#print(procesar_mensaje_rotor(mensaje_encriptar, wire_1))
 
 
 
