@@ -1,4 +1,4 @@
-#import gestor_archivos.py, utilidades.py
+import gestor_archivos.py, utilidades.py
 import os
 
 while True:
