@@ -3,8 +3,8 @@
 Aquest projecte és una implementació en Python de la històrica màquina de xifratge **ENIGMA** (model de 3 rotors), utilitzada per la Wehrmacht durant la Segona Guerra Mundial. El simulador reprodueix el comportament mecànic dels rotors, el "stepping" (moviment de l'odòmetre) i el xifratge reversible.
 
 ## 👥 Autors
-* **Nom i Cognoms 1** - (GitHub User)
-* **Nom i Cognoms 2** - (GitHub User)
+* **Marc Malo** - (marma990)
+* **Martí Querol** - (martiquerol22)
 
 ## 🚀 Funcionalitats
 El programa compleix amb els requisits de la pràctica:

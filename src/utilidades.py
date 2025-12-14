@@ -9,6 +9,7 @@ def limpiar_texto(raw_text):
 
     print(f"[OK] Missatge normalitzat correctament!\n")
     return texto_limpio
+# funcio feta amb IA (sobretot per el tema de les llibreries)
 
 def separador_mensaje(texto_limpio):
     """Añade un espacio cada 5 caracteres"""
